@@ -30,5 +30,8 @@ private:
                     const std::function<void(const CellInterface&)>& printCell) const;
     Size GetActualSize() const;
 
-    std::vector<std::vector<std::unique_ptr<Cell>>> cells_;
+    std::unordered_map<Position, std::unique_ptr<Cell>, PositionHash> table_;
+
+    // Печатный размер
+    Size printable_size_;
 };
